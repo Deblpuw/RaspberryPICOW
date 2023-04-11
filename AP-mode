@@ -1,0 +1,13 @@
+import network
+
+ap_ssid = "MonAP"  # SSID de votre point d'accès
+ap_password = "MonMotDePasse"  # Mot de passe de votre point d'accès
+
+# Configurez l'interface WLAN en mode point d'accès
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(True)
+ap_if.config(essid=ap_ssid, password=ap_password)
+
+# Imprimez l'adresse IP du point d'accès pour que les clients puissent s'y connecter
+print("Point d'accès WLAN configuré avec succès. Connectez-vous à {} avec le mot de passe {}".format(ap_ssid, ap_password))
+print("Adresse IP du point d'accès: ", ap_if.ifconfig()[0])
